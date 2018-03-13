@@ -1,0 +1,16 @@
+key.categories.inventory.selected=Selected Slot
+key.categories.dead=Death color
+key.categories.unknown=Unknown category
+key.lgl.open_config=Open color config
+
+desc.categories.name=Categories
+
+desc.lgl:red.name=Red
+desc.lgl:green.name=Green
+desc.lgl:blue.name=Blue
+desc.lgl:brighten.name=Brighten
+desc.lgl:darken.name=Darken
+
+desc.keycat.unknown.name=Color for keys|with an unknown|category
+desc.keycat.dead.name=Color on all keys|when you are dead
+desc.keycat.selected.name=Color of the key|corresponding to|the selected|inventory slot

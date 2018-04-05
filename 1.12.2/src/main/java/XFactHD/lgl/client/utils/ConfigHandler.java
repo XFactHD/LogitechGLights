@@ -34,7 +34,9 @@ public class ConfigHandler
 
     public static int getColorForKeyCategory(String category)
     {
-        return INSTANCE.keyCatColorMap.getOrDefault(category, INSTANCE.keyCatColorMap.get("unknown"));
+        System.out.println(category);
+        System.out.println(INSTANCE.keyCatColorMap);
+        return INSTANCE.keyCatColorMap.getOrDefault(category, INSTANCE.keyCatColorMap.get("key.categories.unknown"));
     }
 
     public static void setColorForKeyCategory(String category, int color)

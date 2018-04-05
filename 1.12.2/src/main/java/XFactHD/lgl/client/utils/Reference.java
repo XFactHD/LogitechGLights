@@ -19,5 +19,5 @@ public class Reference
 {
     public static final String MODID = "lgl";
     public static final String NAME = "LogitechGLights";
-    public static final String VERSION = "0.1";
+    public static final String VERSION = "0.3-hotfix";
 }

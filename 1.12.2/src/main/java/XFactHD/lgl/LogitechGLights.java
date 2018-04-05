@@ -71,8 +71,11 @@ public class LogitechGLights
     @Mod.EventHandler
     public void disable(FMLModDisabledEvent event)
     {
-        LogHelper.info("Disabling LogitechGLights!");
-        handler.shutdown(false);
+        //if (event.getModId().equals(Reference.MODID))
+        {
+            LogHelper.info("Disabling LogitechGLights!");
+            handler.shutdown(false);
+        }
     }
 
     private static class ShutdownThread extends Thread

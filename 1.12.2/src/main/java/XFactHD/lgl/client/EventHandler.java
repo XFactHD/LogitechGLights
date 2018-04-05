@@ -58,7 +58,7 @@ public class EventHandler
         {
             dead = true;
             LogitechGLights.handler.saveCurrentLighting();
-            LogitechGLights.handler.setSolidColor(ConfigHandler.getColorForKeyCategory("key.category.dead"));
+            LogitechGLights.handler.setSolidColor(ConfigHandler.getColorForKeyCategory("key.categories.dead"));
         }
     }
 
@@ -93,21 +93,28 @@ public class EventHandler
             lastSlot = player.inventory.currentItem;
             LogitechGLights.handler.setSolidColorOnKey(INV_SLOT_KEY_CODES[lastSlot], ConfigHandler.getColorForKeyCategory("key.categories.inventory.selected"));
         }
+    }
 
-        if (Display.isCreated()) //TODO: find a way to check if we are the foreground window outside of a game
+    @SubscribeEvent
+    public void onRenderTick(TickEvent.RenderTickEvent event)
+    {
+        if (event.phase == TickEvent.Phase.START)
         {
-            if (focused && !Display.isActive())
+            if (Display.isCreated())
             {
-                focused = false;
-                LogitechGLights.handler.shutdown(true);
-            }
-            else if (!focused && Display.isActive())
-            {
-                focused = true;
-                LogitechGLights.handler.restart(true);
-                if (dead && !hasRespawned)
+                if (focused && !Display.isActive())
                 {
-                    LogitechGLights.handler.setSolidColor(ConfigHandler.getColorForKeyCategory("key.category.dead"));
+                    focused = false;
+                    LogitechGLights.handler.shutdown(true);
+                }
+                else if (!focused && Display.isActive())
+                {
+                    focused = true;
+                    LogitechGLights.handler.restart(true);
+                    if (dead && !hasRespawned)
+                    {
+                        LogitechGLights.handler.setSolidColor(ConfigHandler.getColorForKeyCategory("key.categories.dead"));
+                    }
                 }
             }
         }
